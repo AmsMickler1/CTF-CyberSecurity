@@ -36,7 +36,9 @@ while (1):
 
     for x in range(0,64):
         for y in range(0,64):
-            if ((((charA^x)+y)%64 == basestr.index(codestr[0])) and (((char_^x)+y)%64 == basestr.index(codestr[1])) and (((charr^x)+y)%64 == basestr.index(codestr[2])) and (((charo^x)+y)%64 == basestr.index(codestr[3])) and (((charb^x)+y)%64 == basestr.index(codestr[4])) and (((chart^x)+y)%64 == basestr.index(codestr[6]))):
+            if ((((charA^x)+y)%64 == basestr.index(codestr[0])) and (((char_^x)+y)%64 == basestr.index(codestr[1])) 
+            and (((charr^x)+y)%64 == basestr.index(codestr[2])) and (((charo^x)+y)%64 == basestr.index(codestr[3])) 
+            and (((charb^x)+y)%64 == basestr.index(codestr[4])) and (((chart^x)+y)%64 == basestr.index(codestr[6]))):
                 print "Success! " + str(x) + " : " + str(y)
                 XOR = x
                 SHIFT = y
