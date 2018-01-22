@@ -33,12 +33,12 @@ snippet. So I rearanged things a bit:
     for s in codestr:
         return basestr[((basestr.index(s)^xor)+shift)%64]
 
-From here you can see that this function takes each character s in the code string and uses 
+From here you can see that this function takes each character `s` in the code string and uses 
 the base string to encode it. But what exactly is going on here? Let's start with
 
     basestr.index(s)
 
-This looks for our character s in the base string and returns its index as an integer.
+This looks for our character `s` in the base string and returns its index as an integer.
 
     ( ( [some integer] ^ xor ) + shift )
     
@@ -69,21 +69,21 @@ To get the flag I had to decipher three messages:
 To start, I copied a single base and code string to my workspace so that I could work on how to
 decypher the text without it changing on me every attempt. I took the encoded string and counted
 the instances of each character. I hypothesized that the most occuring character was actually 
-either the space character (" ") or "e", since e is the most common letter in the english language. 
+either the space character (`" "`) or `e`, since `e` is the most common letter in the english language. 
 Based on the locations and frequency of the most occuring character, I decided that it made most 
 sense for it to be the space character. Knowing this, I broke the code string up into words and 
-started making other guesses. One letter words could either be "a" or "I", but since the same 
-character appeared in the middle of other words, I could safely assume those words were "a", since 
-there are no words with capital "I"s in the middle of them. Once I had two decently likely guesses, 
-I wrote a piece of code that would print out possible values of XOR and SHIFT that would satisfy both.
+started making other guesses. One letter words could either be `a` or `I`, but since the same 
+character appeared in the middle of other words, I could safely assume those words were `a`, since 
+there are no words with capital `I`s in the middle of them. Once I had two decently likely guesses, 
+I wrote a piece of code that would print out possible values of `XOR` and `SHIFT` that would satisfy both.
 I started testing values between 0 and 100, but I quickly realized none of the outputs greater than
 64 would work so I changed it to only look for numbers between 0 and 64. This gave me a list of about
 10 or so values that I tried one by one. None of them turned out exactly right, but they were close
 enough that I was able to logic out what the string was supposed to say. 
 
 Using this technique, I realized that all of the strings generated started with the same pattern that 
-decodes to "A robot". From there I was able to write a program that uses those 6 guaranteed characters
-to determine that runthrough's XOR and SHIFT values, and then use those to decode the string. My program
+decodes to `A robot`. From there I was able to write a program that uses those 6 guaranteed characters
+to determine that runthrough's `XOR` and `SHIFT` values, and then use those to decode the string. My program
 was having trouble writing the strings (The server would spit back incorrect even though it had 
 deciphered the string correctly, it was likely some small formatting error on my part) so after I 
 discovered that there are only three unique strings I just typed them into the server myself to obtain
