@@ -87,7 +87,9 @@ to determine that runthrough's `XOR` and `SHIFT` values, and then use those to d
 was having trouble writing the strings (The server would spit back incorrect even though it had 
 deciphered the string correctly, it was likely some small formatting error on my part) so after I 
 discovered that there are only three unique strings I just typed them into the server myself to obtain
-the flag.
+the flag. After doing this and making note of the format of the server output after a successful attempt
+at answering a message, I went back and fixed my code so that you can run it and it will successfully decode
+all three messages for you.
 
     flag{4s1m0v_w0uld_b3_pr0ud}
 
