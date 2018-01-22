@@ -33,9 +33,9 @@ while (1):
     chart = basestr.index("t")
     XOR = 0
     SHIFT = 0
-
-    for x in range(0,64):
-        for y in range(0,64):
+    
+    for x in range(0,64):       # I realize this is super bad form but I've not yet been able to wrap my head
+        for y in range(0,64):   # around python's condensed syntax and for now this works
             if ((((charA^x)+y)%64 == basestr.index(codestr[0])) and (((char_^x)+y)%64 == basestr.index(codestr[1])) 
             and (((charr^x)+y)%64 == basestr.index(codestr[2])) and (((charo^x)+y)%64 == basestr.index(codestr[3])) 
             and (((charb^x)+y)%64 == basestr.index(codestr[4])) and (((chart^x)+y)%64 == basestr.index(codestr[6]))):
@@ -43,6 +43,7 @@ while (1):
                 XOR = x
                 SHIFT = y
 
+    # this is also really bad style, sorry.
     for x in codestr:
         num = basestr.index(x)
         if (num - SHIFT < 0):
@@ -50,7 +51,10 @@ while (1):
         num -= SHIFT
         num = num^XOR
         answer += basestr[num]
-
+        
+    # I wrote an alternative here, but the server is down so I'm unable to test it at the moment:
+    #def decode(codestr, xor, shift):
+        #return [basestr[((basest.index(x)^xor)-shift+64)%64] for x in codestr]
 
     print "Answer: " + answer
 
