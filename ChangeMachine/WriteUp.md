@@ -43,6 +43,8 @@ correct runs before the server would give up the flag.
 
 ### Part 2: Get the flag!
 Getting the flag took over 500 consecutive runs of the program! Definitely not something you'd
-want to do by hand!
+want to do by hand! My program only prints out the information between the "Correct!" message and 
+the start of the next round ("$") because that is where the flag should appear. Once it was all
+said and done it was just a matter of running hundreds of loops and waiting for it to show up.
 
 	flag{5t4cks_0n_5t4cks}
